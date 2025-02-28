@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background: #eee;
+            color: #333;
+        }
+
+        header, nav, footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        aside {
+            width: 25%;
+            padding-right: 20px;
+        }
+
+        main {
+            width: 75%;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside a {
+            display: block;
+            padding: 0.5em;
+            text-decoration: none;
+            color: #333;
+        }
+
+        footer {
+            position: static; /* Corrected Footer Position */
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            main {
+                width: 100%;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Catalog</a></li>
+            <li><a href="#">Borrow</a></li>
+            <li><a href="#">Return</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <aside>
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">Search Books</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">My Borrowed Books</a></li>
+                <li><a href="#">Renew Books</a></li>
+                <li><a href="#">Reservations</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2>Welcome to the Library!</h2>
+            <p>Find your favorite books and manage your library account.</p>
+
+            <h3>Featured Books</h3>
+            <ul>
+                <li>Book 1 Title</li>
+                <li>Book 2 Title</li>
+                <li>Book 3 Title</li>
+            </ul>
+
+            <h3>Upcoming Events</h3>
+            <p>No events scheduled at this time.</p>
+        </main>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
+
+</body>
+</html>

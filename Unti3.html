@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button {
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Book entries will be inserted here -->
+        </tbody>
+    </table>
+    <script>
+        // Array of book objects
+        const books = [
+            { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, status: "Available" },
+            { title: "1984", author: "George Orwell", year: 1949, status: "Available" },
+            { title: "Moby Dick", author: "Herman Melville", year: 1851, status: "Available" },
+            // Add more books as needed
+        ];
+
+        // Function to generate table rows for each book
+        function generateBookRows(books) {
+            return books.map((book, index) => {
+                return `
+                    <tr>
+                        <td>${book.title}</td>
+                        <td>${book.author}</td>
+                        <td>${book.year}</td>
+                        <td>${book.status}</td>
+                        <td>
+                            <button class="button" onclick="borrowBook(${index})" ${book.status === 'Available' ? '' : 'disabled'}>Borrow</button>
+                            <button class="button" onclick="returnBook(${index})" ${book.status === 'Borrowed' ? '' : 'disabled'}>Return</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Insert the book rows into the table body
+        document.querySelector('tbody').innerHTML = generateBookRows(books);
+
+        // Function to handle borrowing a book
+        function borrowBook(index) {
+            if (books[index].status === 'Available') {
+                books[index].status = 'Borrowed';
+                updateTable();
+            }
+        }
+
+        // Function to handle returning a book
+        function returnBook(index) {
+            if (books[index].status === 'Borrowed') {
+                books[index].status = 'Available';
+                updateTable();
+            }
+        }
+
+        // Function to update the table display
+        function updateTable() {
+            document.querySelector('tbody').innerHTML = generateBookRows(books);
+        }
+    </script>
+</body>
+</html>
